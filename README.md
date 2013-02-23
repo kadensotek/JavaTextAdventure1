@@ -19,6 +19,8 @@ To do list:
 
         Generate monsters
 
+        Fix user input bug (needs nextLine)
+
         Attack function
 
         Clear function
