@@ -136,6 +136,12 @@ public class Game
 
     public void stats(Player player)
     {
-        System.out.printf("Stats.\n");
+        System.out.printf("\n--------------------------------------------------------------------\n\n");
+        System.out.printf("Name:\t%s", player.getName());
+        System.out.printf("Gold:\t%d", player.getGold());
+        System.out.printf("Health:\t%d/%d", player.getCurrentHealth(), player.getMaxHealth());
+        System.out.printf("Damage:\t%f", player.getDamage());
+        //System.out.printf("Location:\t%s", player.getLocation());
+        //System.out.printf("Inventory:");
     }
 }
