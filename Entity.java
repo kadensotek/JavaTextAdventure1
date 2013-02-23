@@ -8,7 +8,7 @@ public class Entity
     private int level;
     private int gold;
     private double damage;
-    private int armor;
+    private int defense;
     private ArrayList<Item> backpack;
 
     public Entity()
@@ -80,14 +80,14 @@ public class Entity
         this.damage = newDamage;
     }
 
-    public int getArmor()
+    public int getDefense()
     {
-        return this.armor;
+        return this.defense;
     }
 
-    public void setArmor(int newArmor)
+    public void setDefense(int newDefense)
     {
-        this.armor = newArmor;
+        this.defense = newDefense;
     }
 
     public void addBackpack(Item item)
