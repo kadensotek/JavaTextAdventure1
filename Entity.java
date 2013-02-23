@@ -15,7 +15,7 @@ public class Entity
     {
         this.maxHealth = 100;
         this.currentHealth = this.maxHealth;
-        this.name = "initialized";
+        this.name = "MissingNo";
         this.gold = 0;
         this.backpack = new ArrayList<Item>();
     }
