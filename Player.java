@@ -34,6 +34,7 @@ public class Player extends Entity
         damage /= 4;
 
         setMaxHealth(maxHealth);
+        setCurrentHealth(maxHealth);
         setDefense(defense);
         setDamage(damage);
         setLevel(1);
