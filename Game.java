@@ -26,7 +26,6 @@ public class Game
             userInputLowerCase = userInput.toLowerCase();
 
             quit = commandSwitch(userInputLowerCase, quit);
-            
         }
     }
 
@@ -120,7 +119,7 @@ public class Game
         System.out.println("- Locations:\t\tGives you a list of locations.");
         System.out.println("- Monsters:\t\tTells you if any monsters are nearby.");
         System.out.println("- Stats:\t\tShows your player stats.");
-        System.out.println("- Quit:\t\tExits the game.");
+        System.out.println("- Quit:\t\t\tExits the game.");
     }
 
     public void locations()
@@ -137,11 +136,11 @@ public class Game
     public void stats(Player player)
     {
         System.out.printf("\n--------------------------------------------------------------------\n\n");
-        System.out.printf("Name:\t%s", player.getName());
-        System.out.printf("Gold:\t%d", player.getGold());
-        System.out.printf("Health:\t%d/%d", player.getCurrentHealth(), player.getMaxHealth());
-        System.out.printf("Damage:\t%f", player.getDamage());
-        //System.out.printf("Location:\t%s", player.getLocation());
-        //System.out.printf("Inventory:");
+        System.out.printf("Name:\t%s\n", player.getName());
+        System.out.printf("Gold:\t%d\n", player.getGold());
+        System.out.printf("Health:\t%d/%d\n", player.getCurrentHealth(), player.getMaxHealth());
+        System.out.printf("Damage:\t%.2f\n", player.getDamage());
+        //System.out.printf("Location:\t%s\n", player.getLocation());
+        //System.out.printf("Inventory:\n");
     }
 }
