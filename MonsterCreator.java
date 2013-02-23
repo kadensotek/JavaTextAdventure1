@@ -10,7 +10,7 @@ public class MonsterCreator
         Monster monster = new Monster();
 
         monster.setMaxHealth((int)GenerateHealth());
-        monster.setCurrentHealth(monster.getMaxHealth);
+        monster.setCurrentHealth(monster.getMaxHealth());
 
         monster.setDefense(GenerateDefense());
         monster.setDamage(GenerateDamage());
@@ -64,7 +64,7 @@ public class MonsterCreator
         }
         else
         {
-            name = "Troll"
+            name = "Troll";
         }
 
         return name;

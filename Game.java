@@ -7,7 +7,7 @@ public class Game
     //public Map map = new Map();
     public MonsterCreator createMonster = new MonsterCreator();
     public Player player = new Player();
-    public Scanner scanner = new Scanner();
+    public Scanner scanner = new Scanner(System.in);
 
     public Game()
     {
@@ -25,7 +25,7 @@ public class Game
             userInput = getUserInput(userInput);
             userInputLowerCase = userInput.toLowerCase();
 
-            commandSwitch(userInputLowerCase);
+            quit = commandSwitch(userInputLowerCase, quit);
             
         }
     }
@@ -40,7 +40,7 @@ public class Game
         return userInput;
     }
 
-    public void commandSwitch(String userInputLC)
+    public boolean commandSwitch(String userInputLC, boolean quit)
     {
          switch(userInputLC)
          {
@@ -75,16 +75,18 @@ public class Game
                            System.out.printf("Default case.\n");
                            break;
         }
+
+        return quit;
     }
 
     public void initialize()
     {
         //TO DO: generate monsters
-        Scanner getName = new Scanner();
+        Scanner nameScanner = new Scanner(System.in);
 
         System.out.printf("\nInitialized.\n");
         System.out.printf("Please enter your name:\n> ");
-        String userName = getName.next();
+        String userName = nameScanner.next();
         System.out.println();
 
         player.setName(userName);
