@@ -34,7 +34,7 @@ public class MonsterCreator
         int defense = 1;
         randGen = new Random();
 
-        defense = random.nextInt(100);
+        defense = randGen.nextInt(100);
 
         return defense;
     }
@@ -52,7 +52,7 @@ public class MonsterCreator
     private String GenerateName()
     {
         String name = "MissingNo";
-        int temp = randGen.nextint(15);
+        int temp = randGen.nextInt(15);
 
         if(temp <= 5)
         {
