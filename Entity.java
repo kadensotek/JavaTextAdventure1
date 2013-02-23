@@ -100,7 +100,7 @@ public class Entity
         backpack.remove(item);
     }
 
-    //attacks
+    //TO ADD: attack function
 
-    //dies
+    //TO ADD: dies function
 }
