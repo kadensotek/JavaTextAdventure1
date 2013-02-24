@@ -30,16 +30,21 @@ public class Game
     }
 
     public String getUserInput(String userInput)
+    /* Gets user commands */
     {
         System.out.printf("\nEnter a command:\n");
         System.out.printf("> ");
+
         userInput = scanner.next();
+
+        userInput = userInput.replaceAll("\\W", ""); /* Strips punctuation from string */
         System.out.println();
 
         return userInput;
     }
 
     public boolean commandSwitch(String userInputLC, boolean quit)
+    /* Processes user commands with switch*/
     {
          switch(userInputLC)
          {
@@ -81,12 +86,9 @@ public class Game
     public void initialize()
     {
         //TO DO: generate monsters
-        Scanner nameScanner = new Scanner(System.in);
 
-        System.out.printf("\nInitialized.\n");
-        System.out.printf("Please enter your name:\n> ");
-        String userName = nameScanner.next();
-        System.out.println();
+        System.out.printf("Please enter your name, %s:\n> ", player.getName());
+        String userName = scanner.nextLine();
 
         player.setName(userName);
 

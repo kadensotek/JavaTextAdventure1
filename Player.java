@@ -5,6 +5,7 @@ public class Player extends Entity
     public Player()
     {
         Random randGen = new Random();
+        String name = "Default";
         int maxHealth = 20;
         int defense = 0;
         int rand;
@@ -33,6 +34,7 @@ public class Player extends Entity
         damage = Math.round(damage * 4);
         damage /= 4;
 
+        setName(name);
         setMaxHealth(maxHealth);
         setCurrentHealth(maxHealth);
         setDefense(defense);
