@@ -15,6 +15,8 @@ To do list:
 
     Game:
 
+        add directions to move
+
         Generate map
 
         Generate monsters
