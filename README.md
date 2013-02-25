@@ -19,13 +19,9 @@ To do list:
 
         Generate map
 
-        Generate monsters
-
         Fix user input bug (needs nextLine)
 
         Attack function
-
-        Clear function
 
         Go_to function
 
@@ -33,7 +29,7 @@ To do list:
 
         Monsters function
 
-        Stats function
+        create command parsing
 
     Item:
 
@@ -48,7 +44,3 @@ To do list:
     MonsterCreator:
 
         Add additional monsters
-
-    Player:
-
-        Initialize player
