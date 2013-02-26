@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Entity
 {
+    private boolean alive;
     private int maxHealth;
     private int currentHealth;
     private String name;
@@ -14,12 +15,23 @@ public class Entity
 
     public Entity()
     {
+        this.alive = true;
         this.maxHealth = 100;
         this.currentHealth = this.maxHealth;
         this.name = "MissingNo";
         this.gold = 0;
         this.experience = 0;
         this.backpack = new ArrayList<Item>();
+    }
+
+    public boolean isAlive()
+    {
+        return this.alive;
+    }
+
+    public void setAlive(boolean state)
+    {
+       this.alive = state;
     }
 
     public int getMaxHealth()
@@ -130,6 +142,8 @@ public class Entity
 
     public ArrayList<Item> die()
     {
+        this.setAlive(false);
+
         System.out.println(this.name + " has died. Oh look, he dropped:" );
 
         for (Item item : this.backpack)

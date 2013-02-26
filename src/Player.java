@@ -6,6 +6,7 @@ public class Player extends Entity
     {
         Random randGen = new Random();
         String name = "Stranger";
+        boolean alive = true;
         int rand;
         int maxHealth = 20;
         int defense = 0;
@@ -36,6 +37,7 @@ public class Player extends Entity
         attack /= 4;
 
         setName(name);
+        setAlive(true);
         setMaxHealth(maxHealth);
         setCurrentHealth(maxHealth);
         setDefense(defense);
