@@ -3,6 +3,17 @@ public class Item
     private String itemName;
     private int itemID;
 
+/*
+ *   Health potion
+ *   Poison antidote
+ *   Key
+ *   Health increase
+ *   Defense increase
+ *
+ *
+ */
+
+
     public Item(int itemID)
     {
         //TO DO: Assign items for itemID
