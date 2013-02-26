@@ -14,7 +14,9 @@ To do list:
 
         Generate map
 
-        Attack function
+        Combat function needed:
+
+            Attack function: clean up and make more legible
 
         Locations function
 
@@ -35,3 +37,5 @@ To do list:
     MonsterCreator:
 
         Add additional monsters
+
+        Generate name first; then generate stats based on type of monster and level of player
