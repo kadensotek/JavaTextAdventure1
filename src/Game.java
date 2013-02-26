@@ -8,6 +8,7 @@ public class Game
     public MonsterCreator createMonster = new MonsterCreator();
     public Player player = new Player();
     public Scanner scanner = new Scanner(System.in);
+    public Monster monster;
 
     public Game()
     {
@@ -45,12 +46,14 @@ public class Game
     public boolean commandProcessing(String userInput, boolean quit)
     /* processes user commands */
     {
+
        if(userInput.startsWith("attack"))
        {
-           //attack(player, monster);
-           attack();
+           attack(player, monster);
        }
-       else if(userInput.startsWith("clear"))
+       else 
+
+       if(userInput.startsWith("clear"))
        {
            clear();
        }
@@ -61,6 +64,10 @@ public class Game
        else if(userInput.startsWith("help"))
        {
            printHelp();
+       }
+       else if(userInput.startsWith("look"))
+       {
+           look();
        }
        else if(userInput.startsWith("locations"))
        {
@@ -91,6 +98,9 @@ public class Game
     public void initialize()
     {
         //TO DO: generate monsters
+        createMonster.Generate(monsterList);
+
+        monster = monsterList.get(0);
 
         System.out.printf("Please enter your name, %s:\n> ", player.getName());
         String userName = scanner.nextLine();
@@ -101,9 +111,29 @@ public class Game
     }
 
     /* Commands */
-    public void attack()
+    public void attack(Entity player, Entity monster)
     {
-        System.out.printf("Attacking\n");
+        System.out.println("----------------------------------");
+
+	System.out.println("p_damage: " + player.getDamage());
+	System.out.println("m_armour: " + monster.getDefense());
+
+	System.out.println("mh_before: " + monster.getCurrentHealth());
+	player.attack(player, monster);
+	System.out.println("mh_after: " + monster.getCurrentHealth());
+
+	System.out.println("----------------------------------");
+
+	System.out.println("----------------------------------");
+
+	System.out.println("m_damage: " + monster.getDamage());
+	System.out.println("p_armour: " + player.getDefense());
+
+	System.out.println("ph_before: " + player.getCurrentHealth());
+	monster.attack(monster, player);
+	System.out.println("ph_after: " + player.getCurrentHealth());
+
+	System.out.println("----------------------------------");
     }
 
     public void clear()
@@ -161,12 +191,18 @@ public class Game
         System.out.printf("-------------------------------------------------------------------\n");
         System.out.printf("- Attack:\t\tAttack enemy.\n");
         System.out.printf("- Clear:\t\tClears the screen.\n");
-        System.out.printf("- Go to <location>\tTakes you to <location>.\n");
+        System.out.printf("- Go <direction>\tMoves in <direction> if available.\n");
+        System.out.printf("- Look:\t\tLooks around current location.\n");
         System.out.printf("- Locations:\t\tGives you a list of locations.\n");
         System.out.printf("- Monsters:\t\tTells you if any monsters are nearby.\n");
         System.out.printf("- Stats:\t\tShows your player stats.\n");
         System.out.printf("- Quit:\t\t\tExits the game.\n");
         System.out.println();
+    }
+
+    public void look()
+    {
+        System.out.printf("Looking.\n");
     }
 
     public void locations()
