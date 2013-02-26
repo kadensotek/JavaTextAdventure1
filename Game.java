@@ -56,7 +56,7 @@ public class Game
        }
        else if(userInput.startsWith("go"))
        {
-           go_to();
+           go(userInput);
        }
        else if(userInput.startsWith("help"))
        {
@@ -114,9 +114,45 @@ public class Game
         }
     }
 
-    public void go_to()
+    public void go(String userInput)
     {
-        System.out.printf("Going to <location>\n");
+        String direction = "";
+        boolean valid = true;
+
+        if(userInput.matches(".*north.*"))
+        {
+           direction = "north"; 
+        }
+        else if(userInput.matches(".*east.*"))
+        {
+           direction = "east"; 
+        }
+        else if(userInput.matches(".*south.*"))
+        {
+           direction = "south"; 
+        }
+        else if(userInput.matches(".*west.*"))
+        {
+           direction = "west"; 
+        }
+        else
+        {
+            valid = false;
+        }
+
+        if(!valid)
+        {
+            System.out.printf("That's not a recognized direction.\n");
+        }
+        else
+        {
+            move(direction);
+        }
+    }
+
+    public void move(String direction)
+    {
+        System.out.printf("Moving %s\n", direction);
     }
 
     public void printHelp()
@@ -147,7 +183,7 @@ public class Game
     public void stats(Player player)
     {
         System.out.printf("\nPlayer Stats\n");
-        System.out.printf("--------------------------------------------------------------------\n");
+        System.out.printf("--------------------------------------\n");
         System.out.printf("Name:\t%s\n", player.getName());
         System.out.printf("Gold:\t%d\n", player.getGold());
         System.out.printf("Health:\t%d/%d\n", player.getCurrentHealth(), player.getMaxHealth());
