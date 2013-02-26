@@ -115,7 +115,7 @@ public class Game
     {
         System.out.println("----------------------------------");
 
-	System.out.println("p_damage: " + player.getDamage());
+	System.out.println("p_attack: " + player.getAttack());
 	System.out.println("m_armour: " + monster.getDefense());
 
 	System.out.println("mh_before: " + monster.getCurrentHealth());
@@ -126,7 +126,7 @@ public class Game
 
 	System.out.println("----------------------------------");
 
-	System.out.println("m_damage: " + monster.getDamage());
+	System.out.println("m_attack: " + monster.getAttack());
 	System.out.println("p_armour: " + player.getDefense());
 
 	System.out.println("ph_before: " + player.getCurrentHealth());
@@ -225,7 +225,7 @@ public class Game
         System.out.printf("Exp:\t  %d\n", player.getExperience());
         System.out.printf("Gold:\t  %d\n", player.getGold());
         System.out.printf("Health:\t  %d/%d\n", player.getCurrentHealth(), player.getMaxHealth());
-        System.out.printf("Damage:\t  %.2f\n", player.getDamage());
+        System.out.printf("Attack:\t  %.2f\n", player.getAttack());
         System.out.printf("Def:\t  %d\n", player.getDefense());
         //System.out.printf("Location:\t%s\n", player.getLocation());
         //System.out.printf("Inventory:\n");

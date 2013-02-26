@@ -10,8 +10,8 @@ public class Player extends Entity
         int maxHealth = 20;
         int defense = 0;
         int experience = 0;
-        double damage = 0;
-        double damageIncrement;
+        double attack = 0;
+        double attackIncrement;
 
         for(int i=0; i<120; i++)
         {
@@ -27,19 +27,19 @@ public class Player extends Entity
             }
             else
             {
-                damageIncrement = (randGen.nextDouble() * 2.2);
-                damage += damageIncrement;
+                attackIncrement = (randGen.nextDouble() * 2.2);
+                attack += attackIncrement;
             }
         }
 
-        damage = Math.round(damage * 4);
-        damage /= 4;
+        attack = Math.round(attack * 4);
+        attack /= 4;
 
         setName(name);
         setMaxHealth(maxHealth);
         setCurrentHealth(maxHealth);
         setDefense(defense);
-        setDamage(damage);
+        setAttack(attack);
         setLevel(1);
     }
 }

@@ -8,7 +8,7 @@ public class Entity
     private int level;
     private int experience;
     private int gold;
-    private double damage;
+    private double attack;
     private int defense;
     private ArrayList<Item> backpack;
 
@@ -82,14 +82,14 @@ public class Entity
         this.gold = newGold;
     }
 
-    public double getDamage()
+    public double getAttack()
     {
-        return this.damage;
+        return this.attack;
     }
 
-    public void setDamage(double newDamage)
+    public void setAttack(double newAttack)
     {
-        this.damage = newDamage;
+        this.attack = newAttack;
     }
 
     public int getDefense()
@@ -114,7 +114,7 @@ public class Entity
 
     public void attack(Entity attacker, Entity defender)
     {
-        double a_Damage = attacker.getDamage();
+        double a_Attack = attacker.getAttack();
         int d_Defense = defender.getDefense();
         int d_Health = defender.getCurrentHealth();
         int baseDefense = 100;
@@ -122,7 +122,7 @@ public class Entity
 
         /* damage calculations*/
         defenseFactor = 0.12 * (baseDefense + d_Defense) / 100;
-        d_Health = d_Health - (int)(a_Damage * (1 - defenseFactor));		
+        d_Health = d_Health - (int)(a_Attack * (1 - defenseFactor));		
 
         /* set defender health to new health */
         defender.setCurrentHealth(d_Health);

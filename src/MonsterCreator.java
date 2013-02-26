@@ -13,7 +13,7 @@ public class MonsterCreator
         monster.setCurrentHealth(monster.getMaxHealth());
 
         monster.setDefense(GenerateDefense());
-        monster.setDamage(GenerateDamage());
+        monster.setAttack(GenerateAttack());
         monster.setName(GenerateName());
 
         monsterList.add(monster);
@@ -39,14 +39,14 @@ public class MonsterCreator
         return defense;
     }
 
-    private double GenerateDamage()
+    private double GenerateAttack()
     {
-        double damage = 1;
+        double attack = 1;
         randGen = new Random();
 
-        damage = randGen.nextInt(100);
+        attack = randGen.nextInt(100);
 
-        return damage;
+        return attack;
     }
 
     private String GenerateName()
