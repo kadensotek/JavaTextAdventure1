@@ -192,7 +192,7 @@ public class Game
         System.out.printf("- Attack:\t\tAttack enemy.\n");
         System.out.printf("- Clear:\t\tClears the screen.\n");
         System.out.printf("- Go <direction>\tMoves in <direction> if available.\n");
-        System.out.printf("- Look:\t\tLooks around current location.\n");
+        System.out.printf("- Look:\t\t\tLooks around current location.\n");
         System.out.printf("- Locations:\t\tGives you a list of locations.\n");
         System.out.printf("- Monsters:\t\tTells you if any monsters are nearby.\n");
         System.out.printf("- Stats:\t\tShows your player stats.\n");
