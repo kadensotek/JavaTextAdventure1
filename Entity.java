@@ -100,7 +100,31 @@ public class Entity
         backpack.remove(item);
     }
 
-    //TO ADD: attack function
+    public void attack(Entity attacker, Entity defender)
+    {
+        double a_Damage = attacker.getDamage();
+        int d_Defense = defender.getDefense();
+        int d_Health = defender.getCurrentHealth();
+        int baseDefense = 100;
+        double defenseFactor;
 
-    //TO ADD: dies function
+        /* damage calculations*/
+        defenseFactor = 0.12 * (baseDefense + d_Defense) / 100;
+        d_Health = d_Health - (int)(a_Damage * (1 - defenseFactor));		
+
+        /* set defender health to new health */
+        defender.setCurrentHealth(d_Health);
+    }
+
+    public ArrayList<Item> die()
+    {
+        System.out.println(this.name + " has died. Oh look, he dropped:" );
+
+        for (Item item : this.backpack)
+        {
+            System.out.println(item.getName());
+        }
+
+        return this.backpack;
+    }
 }
