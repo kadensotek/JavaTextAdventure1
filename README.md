@@ -3,11 +3,6 @@ First attempt at a Java text based game
 
 To do list:
 
-    Entity:
-
-        Attack function
-
-        Dying function
 
     Map:
 
@@ -15,15 +10,11 @@ To do list:
 
     Game:
 
-        add directions to move
+        move function
 
         Generate map
 
-        Fix user input bug (needs nextLine)
-
         Attack function
-
-        Go_to function
 
         Locations function
 
