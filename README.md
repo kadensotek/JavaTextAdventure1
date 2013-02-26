@@ -39,3 +39,7 @@ To do list:
         Add additional monsters
 
         Generate name first; then generate stats based on type of monster and level of player
+
+    BattleEngine:
+
+        Create engine for battles. will be a definite improvement over current ATTACK command.
