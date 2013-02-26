@@ -6,6 +6,7 @@ public class Entity
     private int currentHealth;
     private String name;
     private int level;
+    private int experience;
     private int gold;
     private double damage;
     private int defense;
@@ -17,6 +18,7 @@ public class Entity
         this.currentHealth = this.maxHealth;
         this.name = "MissingNo";
         this.gold = 0;
+        this.experience = 0;
         this.backpack = new ArrayList<Item>();
     }
 
@@ -58,6 +60,16 @@ public class Entity
     public void setLevel(int newLevel)
     {
         this.level = newLevel;
+    }
+
+    public int getExperience()
+    {
+        return this.experience;
+    }
+
+    public void setExperience(int newExperience)
+    {
+        this.experience = newExperience;
     }
 
     public int getGold()

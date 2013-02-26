@@ -184,10 +184,13 @@ public class Game
     {
         System.out.printf("\nPlayer Stats\n");
         System.out.printf("--------------------------------------\n");
-        System.out.printf("Name:\t%s\n", player.getName());
-        System.out.printf("Gold:\t%d\n", player.getGold());
-        System.out.printf("Health:\t%d/%d\n", player.getCurrentHealth(), player.getMaxHealth());
-        System.out.printf("Damage:\t%.2f\n", player.getDamage());
+        System.out.printf("Name:\t  %s\n", player.getName());
+        System.out.printf("Level:\t  %d\n", player.getLevel());
+        System.out.printf("Exp:\t  %d\n", player.getExperience());
+        System.out.printf("Gold:\t  %d\n", player.getGold());
+        System.out.printf("Health:\t  %d/%d\n", player.getCurrentHealth(), player.getMaxHealth());
+        System.out.printf("Damage:\t  %.2f\n", player.getDamage());
+        System.out.printf("Def:\t  %d\n", player.getDefense());
         //System.out.printf("Location:\t%s\n", player.getLocation());
         //System.out.printf("Inventory:\n");
         System.out.println();

@@ -5,10 +5,11 @@ public class Player extends Entity
     public Player()
     {
         Random randGen = new Random();
-        String name = "Default";
+        String name = "Stranger";
+        int rand;
         int maxHealth = 20;
         int defense = 0;
-        int rand;
+        int experience = 0;
         double damage = 0;
         double damageIncrement;
 
