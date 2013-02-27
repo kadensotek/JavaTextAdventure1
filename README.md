@@ -41,3 +41,5 @@ To do list:
     BattleEngine:
 
         Create engine for battles. will be a definite improvement over current ATTACK command.
+
+        Generate experience value of enemy
