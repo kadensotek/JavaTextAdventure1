@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Game
 {
@@ -8,6 +9,7 @@ public class Game
     public MonsterCreator createMonster = new MonsterCreator();
     public Player player = new Player();
     public Scanner scanner = new Scanner(System.in);
+    public Random randGen = new Random();
     public Monster monster;
 
     public Game()
@@ -17,14 +19,32 @@ public class Game
 
     public void gameLoop()
     {
+        boolean encounter = false;
         boolean quit = false;
         String userInput = "";
 
         while(!quit)
         {
-            userInput = getUserInput(userInput);
+            encounter = encounterGen(false);
 
-            quit = commandProcessing(userInput, quit);
+            if(encounter == true)
+            {
+                //isAlive = battle
+                System.out.printf("Battle!\n");
+                encounter = false;
+            }
+
+            if(player.isAlive())
+            {
+                userInput = getUserInput(userInput);
+
+                quit = commandProcessing(userInput, quit);
+            }
+            else
+            {
+                System.out.printf("And so ends the tale of %s\n", player.getName());
+                quit = true;
+            }
         }
     }
 
@@ -110,6 +130,18 @@ public class Game
         System.out.printf("\nThank you, %s.\n", player.getName());
     }
 
+    public boolean encounterGen(boolean encounter)
+    {
+        int i = randGen.nextInt(100);
+
+        if(i >= 85)
+        {
+            encounter = true;
+        }
+
+        return encounter;
+    }
+
     /* Commands */
     public void attack(Entity player, Entity monster)
     {
@@ -132,6 +164,11 @@ public class Game
 	System.out.println("ph_before: " + player.getCurrentHealth());
 	monster.attack(monster, player);
 	System.out.println("ph_after: " + player.getCurrentHealth());
+
+        if(player.getCurrentHealth() <= 0)
+        {
+            player.setAlive(false);
+        }
 
 	System.out.println("----------------------------------");
     }
