@@ -124,6 +124,7 @@ public class Entity
         backpack.remove(item);
     }
 
+    /* will be eliminated */
     public void attack(Entity attacker, Entity defender)
     {
         double a_Attack = attacker.getAttack();
