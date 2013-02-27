@@ -35,6 +35,7 @@ public class BattleEngine
     }
 
     public void battle(Player player, Monster monster)
+    /* flow of battle */
     {
         battleInit(player, monster);
 
@@ -88,9 +89,28 @@ public class BattleEngine
 
             choice = getInputInt(1,4);  /* gets user int input with min and max valid values specified */
 
+            System.out.println();
 
-            if(pCurrentHealth > 0)  mCurrentHealth-=20;
-            if(mCurrentHealth > 0)  pCurrentHealth-=20;
+            switch(choice)
+            {
+                case 1:  /* attack */
+                         if(pCurrentHealth > 0)  mCurrentHealth-=20;
+                         if(mCurrentHealth > 0)  pCurrentHealth-=20;
+                         break;
+                case 2:  /* defend */
+                         System.out.printf("You defend.\n%s defends.\n", mName);
+                         break;
+                case 3:  /* item */
+                         System.out.printf("You use item.\n%s defends.\n", mName);
+                         break;
+                case 4:  /* flee */
+                         System.out.printf("You can't escape.\n");
+                         break;
+            }
+
+            System.out.println();
+
+
         }
     }
 
@@ -112,11 +132,12 @@ public class BattleEngine
         {
             player.setCurrentHealth(pCurrentHealth);
             player.setExperience(10);
-            System.out.printf("\n%s has been defeated!\n", mName);
+            System.out.printf("%s has been defeated!\n", mName);
+            player.levelUp();
         }
         else
         {
-            System.out.printf("\n%s has been slain.\n", pName);
+            System.out.printf("%s has been slain.\n", pName);
             player.setAlive(false);
         }
     }
