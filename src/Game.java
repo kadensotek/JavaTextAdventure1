@@ -48,12 +48,24 @@ public class Game
         }
     }
 
+    public boolean encounterGen(boolean encounter)
+    {
+        int i = randGen.nextInt(100);
+
+        if(i >= 85)
+        {
+            encounter = true;
+        }
+
+        return encounter;
+    }
+
     public void encounter()
     {
                 createMonster.Generate(monsterList);
                 monster = monsterList.get(0);
 
-                battleEngine.Battle(player, monster);
+                battleEngine.battle(player, monster);
 
                 monsterList.remove(0);
     }
@@ -127,18 +139,6 @@ public class Game
         player.setName(userName);
 
         System.out.printf("\nThank you, %s.\n", player.getName());
-    }
-
-    public boolean encounterGen(boolean encounter)
-    {
-        int i = randGen.nextInt(100);
-
-        if(i >= 85)
-        {
-            encounter = true;
-        }
-
-        return encounter;
     }
 
     /* Commands */
