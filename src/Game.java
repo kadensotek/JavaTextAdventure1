@@ -7,6 +7,7 @@ public class Game
     public ArrayList<Monster> monsterList = new ArrayList<Monster>();
     //public Map map = new Map();
     public MonsterCreator createMonster = new MonsterCreator();
+    public BattleEngine battleEngine = new BattleEngine();
     public Player player = new Player();
     public Scanner scanner = new Scanner(System.in);
     public Random randGen = new Random();
@@ -25,15 +26,11 @@ public class Game
 
         while(!quit)
         {
-            encounter = encounterGen(false);
+            encounter = encounterGen(false);   /* rolls for chance of monster encounter */
 
             if(encounter == true)
             {
-                createMonster.Generate(monsterList);
-                monster = monsterList.get(0);
-
-                //isAlive = battle
-                System.out.printf("Battle!\n");
+                encounter();
                 encounter = false;
             }
 
@@ -49,6 +46,16 @@ public class Game
                 quit = true;
             }
         }
+    }
+
+    public void encounter()
+    {
+                createMonster.Generate(monsterList);
+                monster = monsterList.get(0);
+
+                battleEngine.Battle(player, monster);
+
+                monsterList.remove(0);
     }
 
     public String getUserInput(String userInput)
@@ -218,7 +225,6 @@ public class Game
     {
         System.out.printf("\nCommands\n");
         System.out.printf("-------------------------------------------------------------------\n");
-        System.out.printf("- Attack:\t\tAttack enemy.\n");
         System.out.printf("- Clear:\t\tClears the screen.\n");
         System.out.printf("- Go <direction>\tMoves in <direction> if available.\n");
         System.out.printf("- Look:\t\t\tLooks around current location.\n");
