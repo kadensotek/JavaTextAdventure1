@@ -14,15 +14,13 @@ To do list:
 
         Generate map
 
-        Combat function needed:
-
-            Attack function: clean up and make more legible
-
         Locations function
 
         Monsters function
 
         create command parsing
+
+        remove attack function
 
     Item:
 
