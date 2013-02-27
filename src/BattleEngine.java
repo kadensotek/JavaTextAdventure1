@@ -38,7 +38,7 @@ public class BattleEngine
 
         battleLoop();
 
-        battleEnd();
+        battleEnd(player);
     }
 
     public void battleInit(Player player, Monster monster)
@@ -60,7 +60,7 @@ public class BattleEngine
 
         if(mLevel != 1)
         {
-            health = 50 + ((mLevel-1) * 30);
+            health = 50 + ((mLevel-1) * 20);
         }
         else
         {
@@ -74,15 +74,35 @@ public class BattleEngine
         mDefense = monster.getDefense();
 
         System.out.printf("\nYou have encountered a level %d %s!\n", mLevel, mName);
-    }    
+    }
 
     public void battleLoop()
     {
-       System.out.printf("\nBattle begins.\n"); 
+        while((mCurrentHealth > 0) && (pCurrentHealth > 0))
+        {
+            System.out.printf("%s health: %d/%d\n", pName, pCurrentHealth, pMaxHealth);
+            System.out.printf("%s health: %d/%d\n", mName, mCurrentHealth, mMaxHealth);
+            System.out.printf("What do you want to do?\n");
+            System.out.printf("1. Attack\t2. Defend\n");
+            System.out.printf("3. Item\t\t4. Flee\n");
+ 
+            mCurrentHealth--;
+            pCurrentHealth--;
+        }
     }
 
-    public void battleEnd()
+    public void battleEnd(Player player)
     {
-       System.out.printf("\nBattle ends.\n"); 
+        if(mCurrentHealth==0)
+        {
+            player.setCurrentHealth(pCurrentHealth);
+            player.setExperience(10);
+            System.out.printf("\n%s has been defeated!\n", mName);
+        }
+        else
+        {
+            System.out.printf("\n%s has been slain.\n", pName);
+            player.setAlive(false);
+        }
     }
 }
