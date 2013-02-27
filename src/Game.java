@@ -29,6 +29,9 @@ public class Game
 
             if(encounter == true)
             {
+                createMonster.Generate(monsterList);
+                monster = monsterList.get(0);
+
                 //isAlive = battle
                 System.out.printf("Battle!\n");
                 encounter = false;
@@ -66,13 +69,6 @@ public class Game
     public boolean commandProcessing(String userInput, boolean quit)
     /* processes user commands */
     {
-
-       if(userInput.startsWith("attack"))
-       {
-           attack(player, monster);
-       }
-       else 
-
        if(userInput.startsWith("clear"))
        {
            clear();
@@ -117,10 +113,6 @@ public class Game
 
     public void initialize()
     {
-        //TO DO: generate monsters
-        createMonster.Generate(monsterList);
-
-        monster = monsterList.get(0);
 
         System.out.printf("Please enter your name, %s:\n> ", player.getName());
         String userName = scanner.nextLine();
