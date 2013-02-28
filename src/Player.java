@@ -9,12 +9,11 @@ public class Player extends Entity
         boolean alive = true;
         int rand;
         int maxHealth = 20;
-        int defense = 0;
+        int defense = 10;
         int experience = 0;
-        double attack = 0;
-        double attackIncrement;
+        int attack = 10;
 
-        for(int i=0; i<120; i++)
+        for(int i=0; i<60; i++)
         {
             rand = randGen.nextInt(3);
 
@@ -28,13 +27,9 @@ public class Player extends Entity
             }
             else
             {
-                attackIncrement = (randGen.nextDouble() * 2.2);
-                attack += attackIncrement;
+                attack ++;
             }
         }
-
-        attack = Math.round(attack * 4);
-        attack /= 4;
 
         setName(name);
         setAlive(true);
@@ -59,7 +54,7 @@ public class Player extends Entity
         setCurrentHealth(getMaxHealth());
 
         System.out.printf("\nYou reached level %d!\n", getLevel());
-        System.out.printf("Attack:  %.2f\n", getAttack());
+        System.out.printf("Attack:  %d\n", getAttack());
         System.out.printf("Defense: %d\n", getDefense());
         System.out.printf("Health:  %d/%d\n", getCurrentHealth(), getMaxHealth());
         System.out.println();

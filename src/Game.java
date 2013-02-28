@@ -222,7 +222,7 @@ public class Game
         System.out.printf("Exp:\t  %d\n", player.getExperience());
         System.out.printf("Gold:\t  %d\n", player.getGold());
         System.out.printf("Health:\t  %d/%d\n", player.getCurrentHealth(), player.getMaxHealth());
-        System.out.printf("Attack:\t  %.2f\n", player.getAttack());
+        System.out.printf("Attack:\t  %d\n", player.getAttack());
         System.out.printf("Def:\t  %d\n", player.getDefense());
         //System.out.printf("Location:\t%s\n", player.getLocation());
         //System.out.printf("Inventory:\n");

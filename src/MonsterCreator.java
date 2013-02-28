@@ -43,9 +43,9 @@ public class MonsterCreator
         return defense;
     }
 
-    private double GenerateAttack()
+    private int GenerateAttack()
     {
-        double attack = 1;
+        int attack = 1;
         randGen = new Random();
 
         attack = randGen.nextInt(100);

@@ -9,7 +9,7 @@ public class Entity
     private int level;
     private int experience;
     private int gold;
-    private double attack;
+    private int attack;
     private int defense;
     private ArrayList<Item> backpack;
 
@@ -94,12 +94,12 @@ public class Entity
         this.gold = newGold;
     }
 
-    public double getAttack()
+    public int getAttack()
     {
         return this.attack;
     }
 
-    public void setAttack(double newAttack)
+    public void setAttack(int newAttack)
     {
         this.attack = newAttack;
     }
@@ -122,23 +122,6 @@ public class Entity
     public void removeBackpack(Item item)
     {
         backpack.remove(item);
-    }
-
-    /* will be eliminated */
-    public void attack(Entity attacker, Entity defender)
-    {
-        double a_Attack = attacker.getAttack();
-        int d_Defense = defender.getDefense();
-        int d_Health = defender.getCurrentHealth();
-        int baseDefense = 100;
-        double defenseFactor;
-
-        /* damage calculations*/
-        defenseFactor = 0.12 * (baseDefense + d_Defense) / 100;
-        d_Health = d_Health - (int)(a_Attack * (1 - defenseFactor));		
-
-        /* set defender health to new health */
-        defender.setCurrentHealth(d_Health);
     }
 
     public ArrayList<Item> die()
