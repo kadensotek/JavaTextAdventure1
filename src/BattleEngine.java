@@ -22,7 +22,7 @@ public class BattleEngine
     private int choice = 0;     /* Holds player choice */
     private boolean valid;      /* Makes sure choice is in valid range */
     private int temp;           /* Holds misc. temp values */
-    private Random mLevelGen;   /* Generates monster level */
+    private Random randGen;
     private final int P_MAX_DAMAGE[] = {0,30,40,50,60,70,80,90,100,110,120,130,140,150,160}; /* max damages for player, based on level */
     private final int M_MAX_DAMAGE[] = {0,5,15,20,30,35,50,55,65,70,75,80,85};  /* max damages for monster, based on level */
 
@@ -31,22 +31,24 @@ public class BattleEngine
 
     public BattleEngine()
     {
-        mLevelGen = new Random();
+        randGen = new Random();
     }
 
-    public void battle(Player player, Monster monster)
+    public void battle(Player player)
     /* flow of battle */
     {
-        battleInit(player, monster);
+        Monster monster = battleInit(player);
 
         battleLoop();
 
         battleEnd(player);
     }
 
-    public void battleInit(Player player, Monster monster)
+    public Monster battleInit(Player player)
     /* initializes battle stats */
     {
+        MonsterCreator monsterCreator = new MonsterCreator();
+        Monster monster;
         int health;
 
         /* Sets player stats */
@@ -59,8 +61,10 @@ public class BattleEngine
         pDefense = player.getDefense();
         
         /* Sets monster stats */
+        mLevel = randGen.nextInt(2)+(pLevel);
+        monster = monsterCreator.Generate(mLevel);
+
         mName = monster.getName();
-        mLevel = mLevelGen.nextInt(2)+(pLevel);
 
         if(mLevel != 1)
         {
@@ -78,11 +82,15 @@ public class BattleEngine
         mDefense = monster.getDefense();
 
         System.out.printf("\nYou have encountered a level %d %s!\n\n", mLevel, mName);
+
+        return monster;
     }
 
     public void battleLoop()
     /* main loop for battle */
     {
+        int roll = 0;
+
         while((mCurrentHealth > 0) && (pCurrentHealth > 0))
         {
             printBattleHeader();
@@ -94,7 +102,23 @@ public class BattleEngine
             switch(choice)
             {
                 case 1:  /* attack */
-                         if(pCurrentHealth > 0)  mCurrentHealth-=20;
+                         if((roll = (randGen.nextInt(20)+1)) == 1)
+                         {
+                             System.out.printf("You missed!\n");
+                         }
+                         else
+                         {
+                             damage = ((int)pAttack - mDefense) + roll;
+
+                             if(roll == 20)
+                             {
+                                 System.out.printf("Critical hit!\n");
+                                 damage*= 1.5;
+                             }
+
+                             mCurrentHealth-=damage;
+                         }
+                         //if(pCurrentHealth > 0)  mCurrentHealth-=20;
                          if(mCurrentHealth > 0)  pCurrentHealth-=20;
                          break;
                 case 2:  /* defend */

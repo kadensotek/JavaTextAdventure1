@@ -4,14 +4,10 @@ import java.util.Random;
 
 public class Game
 {
-    public ArrayList<Monster> monsterList = new ArrayList<Monster>();
     //public Map map = new Map();
-    public MonsterCreator createMonster = new MonsterCreator();
-    public BattleEngine battleEngine = new BattleEngine();
     public Player player = new Player();
     public Scanner scanner = new Scanner(System.in);
     public Random randGen = new Random();
-    public Monster monster;
 
     public Game()
     {
@@ -62,12 +58,8 @@ public class Game
 
     public void encounter()
     {
-                createMonster.Generate(monsterList);
-                monster = monsterList.get(0);
-
-                battleEngine.battle(player, monster);
-
-                monsterList.remove(0);
+         BattleEngine battleEngine = new BattleEngine();
+         battleEngine.battle(player);
     }
 
     public String getUserInput(String userInput)
@@ -142,36 +134,6 @@ public class Game
     }
 
     /* Commands */
-    public void attack(Entity player, Entity monster)
-    {
-        System.out.println("----------------------------------");
-
-	System.out.println("p_attack: " + player.getAttack());
-	System.out.println("m_armour: " + monster.getDefense());
-
-	System.out.println("mh_before: " + monster.getCurrentHealth());
-	player.attack(player, monster);
-	System.out.println("mh_after: " + monster.getCurrentHealth());
-
-	System.out.println("----------------------------------");
-
-	System.out.println("----------------------------------");
-
-	System.out.println("m_attack: " + monster.getAttack());
-	System.out.println("p_armour: " + player.getDefense());
-
-	System.out.println("ph_before: " + player.getCurrentHealth());
-	monster.attack(monster, player);
-	System.out.println("ph_after: " + player.getCurrentHealth());
-
-        if(player.getCurrentHealth() <= 0)
-        {
-            player.setAlive(false);
-        }
-
-	System.out.println("----------------------------------");
-    }
-
     public void clear()
     {
         for(int i=0; i<50; i++)

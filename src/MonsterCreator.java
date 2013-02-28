@@ -5,10 +5,14 @@ public class MonsterCreator
 {
     Random randGen = new Random();
 
-    public void Generate(ArrayList<Monster> monsterList)
+    public Monster Generate(int level)
     {
+        // generate random monster based on location and level
+        // all stats should be based on level
+
         Monster monster = new Monster();
 
+        monster.setLevel(level);
         monster.setMaxHealth((int)GenerateHealth());
         monster.setCurrentHealth(monster.getMaxHealth());
 
@@ -16,15 +20,15 @@ public class MonsterCreator
         monster.setAttack(GenerateAttack());
         monster.setName(GenerateName());
 
-        monsterList.add(monster);
+        return monster;
     }
 
-    private float GenerateHealth()
+    private int GenerateHealth()
     {
-        float health = 100;
+        int health = 1;
         randGen = new Random();
 
-        health = randGen.nextInt(100);
+        health = randGen.nextInt(70);
 
         return health;
     }
