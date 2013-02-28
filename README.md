@@ -36,6 +36,10 @@ To do list:
 
         Add additional monsters
 
+        Pass map location to monster creator to create monsters specific to environment
+
+        Create experience reward for each monster
+
         Generate name first; then generate stats based on type of monster and level of player
 
     BattleEngine:
