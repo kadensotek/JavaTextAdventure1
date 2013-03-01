@@ -8,26 +8,22 @@ public class BattleEngine
     private boolean pAlive;     /* Player is alive */
     private int pCurrentHealth; /* Player current health*/
     private int pMaxHealth;     /* Player max health */
-    private double pAttack;     /* Player attack */
+    private int pAttack;        /* Player attack */
     private int pDefense;       /* Player defense */
     private String mName;       /* Monster name */
     private int mLevel;         /* Monster level */
     private boolean mAlive;     /* Monster is alive */
     private int mCurrentHealth; /* Monster current health */
     private int mMaxHealth;     /* Monster max health */
-    private double mAttack;     /* Monster attack */
+    private int mAttack;        /* Monster attack */
     private int mDefense;       /* Monster defense */
 
-    private int damage;         /* Holds damage done by attack */ 
     private int choice = 0;     /* Holds player choice */
     private boolean valid;      /* Makes sure choice is in valid range */
     private int temp;           /* Holds misc. temp values */
     private Random randGen;
-    private final int P_MAX_DAMAGE[] = {0,30,40,50,60,70,80,90,100,110,120,130,140,150,160}; /* max damages for player, based on level */
-    private final int M_MAX_DAMAGE[] = {0,5,15,20,30,35,50,55,65,70,75,80,85};  /* max damages for monster, based on level */
 
     //private double wDamage[] = {stuff};  /* weapon damage multiplier */
-    //private Random engine;
 
     public BattleEngine()
     {
@@ -89,10 +85,12 @@ public class BattleEngine
     public void battleLoop()
     /* main loop for battle */
     {
-        int roll = 0;
+        int damage;
 
         while((mCurrentHealth > 0) && (pCurrentHealth > 0))
         {
+            damage = 0;
+
             printBattleHeader();
 
             choice = getInputInt(1,4);  /* gets user int input with min and max valid values specified */
@@ -102,24 +100,18 @@ public class BattleEngine
             switch(choice)
             {
                 case 1:  /* attack */
-                         if((roll = (randGen.nextInt(20)+1)) == 1)
-                         {
-                             System.out.printf("You missed!\n");
-                         }
-                         else
-                         {
-                             damage = ((int)pAttack - mDefense) + roll;
+                         damage = attack(pAttack, mDefense, 'p');
 
-                             if(roll == 20)
-                             {
-                                 System.out.printf("Critical hit!\n");
-                                 damage*= 1.5;
-                             }
+                         mCurrentHealth-=damage;
 
-                             mCurrentHealth-=damage;
+                         /* temp monster turn */
+                         if(mCurrentHealth > 0)
+                         {
+                             System.out.println();
+                             damage = attack(mAttack, pDefense, 'm');
+                             pCurrentHealth-=damage;
                          }
-                         //if(pCurrentHealth > 0)  mCurrentHealth-=20;
-                         if(mCurrentHealth > 0)  pCurrentHealth-=20;
+
                          break;
                 case 2:  /* defend */
                          System.out.printf("You defend.\n%s defends.\n", mName);
@@ -133,9 +125,60 @@ public class BattleEngine
             }
 
             System.out.println();
-
-
         }
+    }
+
+    public int attack(int attackerATK, int defenderDEF, char attacker)
+    /* attacking engine */
+    {
+        int roll = 0;      /* holds value of random roll */
+        int damage = 0;
+
+        if((roll = (randGen.nextInt(20)+1)) == 1)  /* miss if roll == 1 */
+        {
+            if(attacker == 'p')
+            {
+                System.out.printf("You missed!\n");
+            }
+            else
+            {
+                System.out.printf("You dodged the attack!\n");
+            }
+        }
+        else
+        {
+            damage = pAttack + roll;
+            double defenseModifier = (double)mDefense/4;
+            damage-= (int)defenseModifier;
+
+            if(roll == 20)
+            {
+                damage*= 1.5;
+
+                if(attacker == 'p')
+                {
+                    System.out.printf("You deliver a powerful strike, causing %d damage!\n", damage);
+                }
+                else
+                {
+                    System.out.printf("The %s delivers a powerful strike, causing %d damage!\n", mName.toLowerCase(), damage);
+                }
+            }
+            else
+            {
+                if(attacker == 'p')
+                {
+                    System.out.printf("The strike connects, causing %d damage!\n", damage);
+                }
+                else
+                {
+                    System.out.printf("The %s hits you, causing %d damage!\n", mName.toLowerCase(), damage);
+                }
+
+            }
+        }
+
+        return damage;        
     }
 
     public void printBattleHeader()
