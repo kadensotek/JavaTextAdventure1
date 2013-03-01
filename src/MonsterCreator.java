@@ -13,7 +13,7 @@ public class MonsterCreator
         Monster monster = new Monster();
 
         monster.setLevel(level);
-        monster.setName(GenerateName());
+        monster = GenerateMonster(monster);
         monster.setMaxHealth((int)GenerateHealth());
         monster.setCurrentHealth(monster.getMaxHealth());
 
@@ -23,7 +23,7 @@ public class MonsterCreator
         return monster;
     }
 
-    private String GenerateName()
+    private Monster GenerateMonster(Monster monster)
     {
         // pass location for monster creation eventually
         String name = "MissingNo";
@@ -31,54 +31,54 @@ public class MonsterCreator
 
         if(temp==0)
         {
-            name = "Rat";
+            monster.setName("Rat");
         }
         else if(temp==1)
         {
-            name = "Bat";
+            monster.setName("Bat");
         }
         else if(temp==2)
         {
-            name = "Spider";
+            monster.setName("Spider");
         }
         else if(temp==3)
         {
-            name = "Slime";
+            monster.setName("Slime");
         }
         else if(temp==4)
         {
-            name = "Goblin";
+            monster.setName("Goblin");
         }
         else if(temp==5)
         {
-            name = "Wolf";
+            monster.setName("Wolf");
         }
         else if(temp==6)
         {
-            name = "Skeleton";
+            monster.setName("Skeleton");
         }
         else if(temp==7)
         {
-            name = "Zombie";
+            monster.setName("Zombie");
         }
         else if(temp==8)
         {
-            name = "Skeleton";
+            monster.setName("Skeleton");
         }
         else if(temp==9)
         {
-            name = "Bugbear";
+            monster.setName("Bugbear");
         }
         else if(temp==10)
         {
-            name = "Troll";
+            monster.setName("Troll");
         }
         else
         {
-            name = "Giant";
+            monster.setName("Giant");
         }
 
-        return name;
+        return monster;
     }
 
     private int GenerateHealth()
