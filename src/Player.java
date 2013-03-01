@@ -8,10 +8,10 @@ public class Player extends Entity
         String name = "Stranger";
         boolean alive = true;
         int rand;
-        int maxHealth = 20;
-        int defense = 10;
+        int maxHealth = 30;
+        int defense = 15;
         int experience = 0;
-        int attack = 10;
+        int attack = 15;
 
         for(int i=0; i<60; i++)
         {
