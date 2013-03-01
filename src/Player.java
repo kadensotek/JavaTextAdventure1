@@ -43,8 +43,8 @@ public class Player extends Entity
     public void levelUp()
     {
         Random randGen = new Random();
-        int attackGain = randGen.nextInt(10)+5;
-        int defenseGain = randGen.nextInt(10)+5;
+        int attackGain = randGen.nextInt(15)+5;
+        int defenseGain = randGen.nextInt(15)+5;
         int maxHealthGain = randGen.nextInt(25)+10;
 
         setLevel(getLevel()+1);

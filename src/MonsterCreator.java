@@ -14,7 +14,7 @@ public class MonsterCreator
 
         monster.setLevel(level);
         monster = GenerateMonster(monster);
-        monster.setMaxHealth((int)GenerateHealth());
+        monster.setMaxHealth((int)GenerateHealth(monster.getLevel())); /* uses level to calculate health*/
         monster.setCurrentHealth(monster.getMaxHealth());
 
         monster.setDefense(GenerateDefense());
@@ -81,12 +81,18 @@ public class MonsterCreator
         return monster;
     }
 
-    private int GenerateHealth()
+    private int GenerateHealth(int level)
     {
         int health = 1;
-        randGen = new Random();
 
-        health = randGen.nextInt(70);
+        if(level != 1)
+        {
+            health = 25 + ((level-1) * 20);
+        }
+        else
+        {
+            health = 25;
+        }
 
         return health;
     }

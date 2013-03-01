@@ -58,24 +58,14 @@ public class BattleEngine
         
         /* Sets monster stats */
         mLevel = randGen.nextInt(2)+(pLevel);
+
         monster = monsterCreator.Generate(mLevel);
-
         mName = monster.getName();
-
-        if(mLevel != 1)
-        {
-            health = 50 + ((mLevel-1) * 20);
-        }
-        else
-        {
-            health = 50;
-        }
-
-        mAlive = true;
-        mCurrentHealth = health;
-        mMaxHealth = health;
+        mMaxHealth = monster.getMaxHealth();
+        mCurrentHealth = monster.getCurrentHealth();
         mAttack = monster.getAttack();
         mDefense = monster.getDefense();
+        mAlive = true;
 
         System.out.printf("\nYou have encountered a level %d %s!\n\n", mLevel, mName);
 
@@ -147,8 +137,9 @@ public class BattleEngine
         }
         else
         {
+            double attackModifier = (double)attackerATK/4;
+            double defenseModifier = (double)defenderDEF/4;
             damage = pAttack + roll;
-            double defenseModifier = (double)mDefense/4;
             damage-= (int)defenseModifier;
 
             if(roll == 20)
@@ -185,7 +176,7 @@ public class BattleEngine
     /* Prints header for each turn */
     {
             System.out.printf("%s health: %d/%d\n", pName, pCurrentHealth, pMaxHealth);
-            System.out.printf("%s health: %d/%d\n", mName, mCurrentHealth, mMaxHealth);
+            System.out.printf("%s health: %d/%d\n\n", mName, mCurrentHealth, mMaxHealth);
             System.out.printf("What do you want to do?\n");
             System.out.printf("1. Attack\t2. Defend\n");
             System.out.printf("3. Item\t\t4. Flee\n");
