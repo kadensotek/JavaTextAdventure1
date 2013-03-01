@@ -32,6 +32,8 @@ To do list:
 
         Give different creatures different attributes and attacks
 
+        Generate experience value of enemy
+
     MonsterCreator:
 
         Add additional monsters
@@ -44,6 +46,6 @@ To do list:
 
     BattleEngine:
 
-        Create engine for battles. will be a definite improvement over current ATTACK command.
+        Refine attack function
 
-        Generate experience value of enemy
+        Adjust defense modifier
