@@ -40,6 +40,8 @@ To do list:
 
         Some items can hold other items?
 
+        Boolean for usable items
+
     Monster:
 
         Give different creatures different attributes and attacks

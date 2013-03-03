@@ -10,7 +10,7 @@ public class Item
  *   Health increase
  *   Defense increase
  *
- *
+ *   boolean for usable items
  */
 
 
