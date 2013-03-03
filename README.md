@@ -8,7 +8,15 @@ To do list:
 
         Create map object
 
-        Seriously, get to work on it
+        Populate map by linking locations
+
+    Location:
+
+        Links to other locations
+
+        Holds items
+
+        Has function that describes location
 
     Game:
 
@@ -29,6 +37,8 @@ To do list:
         Assign items for itemID
 
         Add item names corresponging to itemID
+
+        Some items can hold other items?
 
     Monster:
 
