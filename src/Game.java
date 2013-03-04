@@ -4,10 +4,11 @@ import java.util.Random;
 
 public class Game
 {
-    //public Map map = new Map();
+    public MapTest map = new MapTest();
     public Player player = new Player();
     public Scanner scanner = new Scanner(System.in);
     public Random randGen = new Random();
+    Location currentLoc = map.one;
 
     public Game()
     {
@@ -96,15 +97,6 @@ public class Game
        {
            look();
        }
-       else if(userInput.startsWith("locations"))
-       {
-           locations();
-       }
-       else if(userInput.startsWith("monsters"))
-       {
-           monsters();
-           //monsters(monsterList);
-       }
        else if(userInput.startsWith("stats"))
        {
            stats(player);
@@ -190,8 +182,6 @@ public class Game
         System.out.printf("- Clear:\t\tClears the screen.\n");
         System.out.printf("- Go <direction>\tMoves in <direction> if available.\n");
         System.out.printf("- Look:\t\t\tLooks around current location.\n");
-        System.out.printf("- Locations:\t\tGives you a list of locations.\n");
-        System.out.printf("- Monsters:\t\tTells you if any monsters are nearby.\n");
         System.out.printf("- Stats:\t\tShows your player stats.\n");
         System.out.printf("- Quit:\t\t\tExits the game.\n");
         System.out.println();
@@ -199,18 +189,7 @@ public class Game
 
     public void look()
     {
-        System.out.printf("Looking.\n");
-    }
-
-    public void locations()
-    {
-        System.out.printf("Locations\n");
-    }
-
-    public void monsters()
-    //public void monsters(ArrayList<Monster> monsterList)
-    {
-        System.out.printf("Monsters\n");
+        currentLoc.look();
     }
 
     public void stats(Player player)

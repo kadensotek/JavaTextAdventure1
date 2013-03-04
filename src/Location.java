@@ -6,7 +6,7 @@ public class Location
 
     private String name;    /* holds name of location */
     private String type;    /* holds type of location (ex. swamp, forest, etc) */
-    //private boolean isLocked;  /* determines if location is open or not */
+    private boolean locked;  /* determines if location is open or not */
     private boolean northFlag;  /* flags determine if path exists */
     private boolean eastFlag;
     private boolean southFlag;
@@ -20,7 +20,7 @@ public class Location
     {
         this.name = name;
         this.type = type;
-        this.isLocked = false;
+        this.locked = false;
 
         this.northFlag = false;
         this.eastFlag = false;
@@ -67,9 +67,9 @@ public class Location
     {
         Location location = currentLocation;
 
-        if(direction.equals("north")
+        if(direction.equals("north"))
         {
-            if(getNorthFlag())
+            if(getNorthFlag() && !isLocked())
             {
                 location = getNorthPath();
             }
@@ -78,9 +78,9 @@ public class Location
                 System.out.printf("You can't go that way.\n");
             }
         }
-        else if(direction.equals("east")
+        else if(direction.equals("east"))
         {
-            if(getEastFlag())
+            if(getEastFlag() && !isLocked())
             {
                 location = getEastPath();
             }
@@ -89,9 +89,9 @@ public class Location
                 System.out.printf("You can't go that way.\n");
             }
         }
-        else if(direction.equals("south")
+        else if(direction.equals("south"))
         {
-            if(getSouthFlag())
+            if(getSouthFlag() && !isLocked())
             {
                 location = getSouthPath();
             }
@@ -100,9 +100,9 @@ public class Location
                 System.out.printf("You can't go that way.\n");
             }
         }
-        else if(direction.equals("west")
+        else if(direction.equals("west"))
         {
-            if(getWestFlag())
+            if(getWestFlag() && !isLocked())
             {
                 location = getWestPath();
             }
@@ -125,22 +125,22 @@ public class Location
         
         System.out.printf("You are in a %s.\n", getType());
 
-        if(getNorthFlag()
+        if(getNorthFlag())
         {
             System.out.printf("There is a path to the north.\n");
         }
 
-        if(getEastFlag()
+        if(getEastFlag())
         {
             System.out.printf("There is a path to the east.\n");
         }
 
-        if(getSouthFlag()
+        if(getSouthFlag())
         {
             System.out.printf("There is a path to the south.\n");
         }
 
-        if(getWestFlag()
+        if(getWestFlag())
         {
             System.out.printf("There is a path to the west.\n");
         }
@@ -156,12 +156,12 @@ public class Location
         return this.type;
     }
 
-    public void setLocked(boolean locked)
+    public void setIsLocked(boolean locked)
     {
         this.locked = locked;
     }
 
-    public boolean getLocked()
+    public boolean isLocked()
     {
         return this.locked;
     }
