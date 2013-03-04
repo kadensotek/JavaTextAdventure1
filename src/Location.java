@@ -62,29 +62,98 @@ public class Location
         }
     }
 
-    public Location go(String direction)
+    public Location go(String direction, Location currentLocation)
     /* returns the new location for movement */
     {
-        Location location = null;
+        Location location = currentLocation;
 
         if(direction.equals("north")
         {
-            location = getNorthPath();
+            if(getNorthFlag())
+            {
+                location = getNorthPath();
+            }
+            else
+            {
+                System.out.printf("You can't go that way.\n");
+            }
         }
         else if(direction.equals("east")
         {
-            location = getEastPath();
+            if(getEastFlag())
+            {
+                location = getEastPath();
+            }
+            else
+            {
+                System.out.printf("You can't go that way.\n");
+            }
         }
         else if(direction.equals("south")
         {
-            location = getSouthPath();
+            if(getSouthFlag())
+            {
+                location = getSouthPath();
+            }
+            else
+            {
+                System.out.printf("You can't go that way.\n");
+            }
         }
         else if(direction.equals("west")
         {
-            location = getWestPath();
+            if(getWestFlag())
+            {
+                location = getWestPath();
+            }
+            else
+            {
+                System.out.printf("You can't go that way.\n");
+            }
+        }
+        else
+        {
+            System.out.printf("That's not a valid direction.\n");
         }
 
         return location;
+    }
+
+    public void look()
+    {
+        System.out.println();
+        
+        System.out.printf("You are in a %s.\n", getType());
+
+        if(getNorthFlag()
+        {
+            System.out.printf("There is a path to the north.\n");
+        }
+
+        if(getEastFlag()
+        {
+            System.out.printf("There is a path to the east.\n");
+        }
+
+        if(getSouthFlag()
+        {
+            System.out.printf("There is a path to the south.\n");
+        }
+
+        if(getWestFlag()
+        {
+            System.out.printf("There is a path to the west.\n");
+        }
+    }
+
+    public String getName()
+    {
+        return this.name;
+    }
+
+    public String getType()
+    {
+        return this.type;
     }
 
     public void setNorthPath(Location location)
