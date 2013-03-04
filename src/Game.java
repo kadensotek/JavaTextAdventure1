@@ -166,13 +166,15 @@ public class Game
         }
         else
         {
-            move(direction);
+            currentLoc = move(direction);
         }
     }
 
-    public void move(String direction)
+    public Location move(String direction)
     {
-        System.out.printf("Moving %s\n", direction);
+        Location newLocation = currentLoc.go(direction, currentLoc);
+
+        return newLocation;
     }
 
     public void printHelp()

@@ -71,6 +71,7 @@ public class Location
         {
             if(getNorthFlag() && !isLocked())
             {
+                System.out.printf("You go north.\n");
                 location = getNorthPath();
             }
             else
@@ -82,6 +83,7 @@ public class Location
         {
             if(getEastFlag() && !isLocked())
             {
+                System.out.printf("You go east.\n");
                 location = getEastPath();
             }
             else
@@ -93,6 +95,7 @@ public class Location
         {
             if(getSouthFlag() && !isLocked())
             {
+                System.out.printf("You go south.\n");
                 location = getSouthPath();
             }
             else
@@ -104,6 +107,7 @@ public class Location
         {
             if(getWestFlag() && !isLocked())
             {
+                System.out.printf("You go west.\n");
                 location = getWestPath();
             }
             else
@@ -121,8 +125,7 @@ public class Location
 
     public void look()
     {
-        System.out.println();
-        
+        System.out.printf("Location name: %s\n", getName());
         System.out.printf("You are in a %s.\n", getType());
 
         if(getNorthFlag())
@@ -236,7 +239,7 @@ public class Location
         return this.southFlag;
     }
 
-    public void setWestFlag(boolean WestFlag)
+    public void setWestFlag(boolean westFlag)
     {
         this.westFlag = westFlag;
     }
