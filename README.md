@@ -18,6 +18,10 @@ To do list:
 
         Has function that describes location
 
+        Flesh out movement code
+
+        Add getters/setters for neswPaths.
+
     Game:
 
         move function
