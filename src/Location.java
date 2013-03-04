@@ -17,6 +17,8 @@ public class Location
     private Location southPath;
     private Location westPath;
 
+    /* possbily add getters and setters for path direction */
+
     public Location(String name, String type, boolean locked)
     {
         this.name = name;
@@ -35,10 +37,8 @@ public class Location
     }
 
     public void addConnection(char direction, Location location)
+    /* adds connections between location, setting flags as needed */
     {
-        //set boolean for direction
-        //add connection in given direction
-
         if(direction == 'n')
         {
             this.northPath = location;
@@ -61,8 +61,33 @@ public class Location
         }
         else
         {
-
+            ; // Not a valid direction to add
         }
+    }
+
+    public Location go(String direction)
+    /* returns the new location for movement */
+    {
+        Location location = null;
+
+        if(direction.equals("north")
+        {
+            location = this.northPath;
+        }
+        else if(direction.equals("east")
+        {
+            location = this.eastPath;
+        }
+        else if(direction.equals("south")
+        {
+            location = this.southPath;
+        }
+        else if(direction.equals("west")
+        {
+            location = westPath;
+        }
+
+        return location;
     }
 
     public void setNorthFlag(boolean northFlag)
