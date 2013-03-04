@@ -1,7 +1,6 @@
 public class Location
 {
-    // used as nodes on map
-    // links to other locations
+    // To add
     // function to describe location
     // items like chests and drawers (possibly create a container class like backpack?"
 
@@ -16,8 +15,6 @@ public class Location
     private Location eastPath;
     private Location southPath;
     private Location westPath;
-
-    /* possbily add getters and setters for path direction */
 
     public Location(String name, String type, boolean locked)
     {
@@ -41,23 +38,23 @@ public class Location
     {
         if(direction == 'n')
         {
-            this.northPath = location;
-            this.northFlag = true;
+            setNorthPath(location);
+            setNorthFlag(true);
         }
         else if(direction == 'e')
         {
-            this.eastPath = location;
-            this.eastFlag = true;
+            setEastPath(location);
+            setEastFlag(true);
         }
         else if(direction == 's')
         {
-            this.southPath = location;
-            this.southFlag = true;
+            setSouthPath(location);
+            setSouthFlag(true);
         }
         else if(direction == 'w')
         {
-            this.westPath = location;
-            this.westFlag = true;
+            setWestPath(location);
+            setWestFlag(true);
         }
         else
         {
@@ -72,22 +69,62 @@ public class Location
 
         if(direction.equals("north")
         {
-            location = this.northPath;
+            location = getNorthPath();
         }
         else if(direction.equals("east")
         {
-            location = this.eastPath;
+            location = getEastPath();
         }
         else if(direction.equals("south")
         {
-            location = this.southPath;
+            location = getSouthPath();
         }
         else if(direction.equals("west")
         {
-            location = westPath;
+            location = getWestPath();
         }
 
         return location;
+    }
+
+    public void setNorthPath(Location location)
+    {
+        this.northPath = location;
+    }
+
+    public Location getNorthPath()
+    {
+        return this.northPath;
+    }
+
+    public void setEastPath(Location location)
+    {
+        this.eastPath = location;
+    }
+
+    public Location getEastPath()
+    {
+        return this.eastPath;
+    }
+
+    public void setSouthPath(Location location)
+    {
+        this.southPath = location;
+    }
+
+    public Location getSouthPath()
+    {
+        return this.southPath;
+    }
+
+    public void setWestPath(Location location)
+    {
+        this.westPath = location;
+    }
+
+    public Location getWestPath()
+    {
+        return this.westPath;
     }
 
     public void setNorthFlag(boolean northFlag)
