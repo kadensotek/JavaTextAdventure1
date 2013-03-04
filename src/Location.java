@@ -16,11 +16,11 @@ public class Location
     private Location southPath;
     private Location westPath;
 
-    public Location(String name, String type, boolean locked)
+    public Location(String name, String type)
     {
         this.name = name;
         this.type = type;
-        this.isLocked = locked;
+        this.isLocked = false;
 
         this.northFlag = false;
         this.eastFlag = false;
@@ -154,6 +154,16 @@ public class Location
     public String getType()
     {
         return this.type;
+    }
+
+    public void setLocked(boolean locked)
+    {
+        this.locked = locked;
+    }
+
+    public boolean getLocked()
+    {
+        return this.locked;
     }
 
     public void setNorthPath(Location location)
