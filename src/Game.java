@@ -19,13 +19,20 @@ public class Game
     {
         boolean encounter = false;
         boolean quit = false;
+        boolean successfulMove = false; /* indicates last choice was a successful change of location */
         String userInput = "";
 
         while(!quit)
         {
-            encounter = encounterGen(false);   /* rolls for chance of monster encounter */
+            if(successfulMove)
+            /* if last choice was to change location */
+            {
+                encounter = encounterGen(false);   /* rolls for chance of monster encounter */
+                successfulMove = false;
+            }
 
-            if(encounter == true)
+            if(encounter)
+            /* triggers encounter if true */
             {
                 encounter();
                 encounter = false;
@@ -35,7 +42,7 @@ public class Game
             {
                 userInput = getUserInput(userInput);
 
-                quit = commandProcessing(userInput, quit);
+                successfulMove = commandProcessing(userInput);
             }
             else
             {
@@ -49,7 +56,7 @@ public class Game
     {
         int i = randGen.nextInt(100);
 
-        if(i >= 85)
+        if(i >= 75)
         {
             encounter = true;
         }
@@ -78,16 +85,18 @@ public class Game
         return userInput;
     }
 
-    public boolean commandProcessing(String userInput, boolean quit)
+    public boolean commandProcessing(String userInput)
     /* processes user commands */
     {
+       boolean successfulMove = false;
+
        if(userInput.startsWith("clear"))
        {
            clear();
        }
        else if(userInput.startsWith("go"))
        {
-           go(userInput);
+           successfulMove = go(userInput);
        }
        else if(userInput.startsWith("help"))
        {
@@ -104,14 +113,14 @@ public class Game
        else if(userInput.startsWith("quit"))
        {
            System.out.printf("Quitting.\n");
-           quit = true;
+           System.exit(0);
        }
        else
        { 
            System.out.printf("Default case.\n");
        }
 
-       return quit;
+       return successfulMove;
     }
 
     public void initialize()
@@ -134,7 +143,7 @@ public class Game
         }
     }
 
-    public void go(String userInput)
+    public boolean go(String userInput)
     {
         String direction = "";
         boolean valid = true;
@@ -168,6 +177,8 @@ public class Game
         {
             currentLoc = move(direction);
         }
+
+        return valid;
     }
 
     public Location move(String direction)
