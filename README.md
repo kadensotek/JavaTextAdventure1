@@ -12,39 +12,19 @@ To do list:
 
     Location:
 
-        Links to other locations
-
         Holds items
-
-        Has function that describes location
-
-        Flesh out movement code
-
-        Add getters/setters for neswPaths.
 
     Game:
 
-        move function
-
         Generate map
-
-        Locations function
-
-        Monsters function
 
         create command parsing
 
-        remove attack function
-
     Item:
 
-        Assign items for itemID
-
-        Add item names corresponging to itemID
+        Add new items
 
         Some items can hold other items?
-
-        Boolean for usable items
 
     Monster:
 
