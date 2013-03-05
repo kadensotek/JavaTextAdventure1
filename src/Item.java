@@ -2,15 +2,16 @@ public class Item
 {
     private String itemName;
     private int itemID;
+    private boolean usable;
 
 /*
- *   Health potion
- *   Poison antidote
- *   Key
- *   Health increase
- *   Defense increase
+ *   1. Health potion
+ *   2. Poison antidote
+ *   3. Health increase
+ *   4. Attack increase
+ *   5. Defense increase
+ *   6. Key
  *
- *   boolean for usable items
  */
 
 
