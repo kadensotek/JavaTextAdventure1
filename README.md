@@ -3,6 +3,12 @@ First attempt at a Java text based game
 
 To do list:
 
+    Container:
+        Create container object
+
+        Holds items
+
+        Drawer, chest, etc
 
     Map:
 
