@@ -10,6 +10,8 @@ To do list:
 
         Drawer, chest, etc
 
+        Remember to hide when empty
+
     Map:
 
         Create map object
