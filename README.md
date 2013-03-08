@@ -22,6 +22,8 @@ To do list:
 
         Holds items
 
+        Holds containers
+
     Game:
 
         Generate map
