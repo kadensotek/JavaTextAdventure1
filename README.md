@@ -24,6 +24,8 @@ To do list:
 
         Holds containers
 
+        Hides containers when empty
+
     Game:
 
         Generate map
