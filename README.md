@@ -10,7 +10,7 @@ To do list:
 
         Drawer, chest, etc
 
-        Remember to hide when empty
+        Remember to hide when empty?
 
     Map:
 
@@ -24,7 +24,7 @@ To do list:
 
         Holds containers
 
-        Hides containers when empty
+        Hides containers when empty?
 
     Game:
 
@@ -35,8 +35,6 @@ To do list:
     Item:
 
         Add new items
-
-        Some items can hold other items?
 
     Monster:
 
