@@ -7,7 +7,7 @@ public class Container
 
     public Container()
     {
-        this.isEmpty = true;
+        this.empty = true;
     }
 
     public boolean isEmpty()
@@ -17,12 +17,9 @@ public class Container
 
     public Item getItem(int index)
     {
-        if(this.isEmpty() == true)
-        {
-            Item item = contents.getItem(index);
-            contents.remove(index);
-            return item;
-        }
+        Item item = contents.get(index);
+        contents.remove(index);
+        return item;
     }
 
     public void addItem(Item newItem)
