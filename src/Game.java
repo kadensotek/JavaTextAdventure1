@@ -114,6 +114,10 @@ public class Game
        {
            stats(player);
        }
+       else if(userInput.startsWith("spawn"))
+       {
+           encounter();
+       }
        else if(userInput.startsWith("quit"))
        {
            System.out.printf("Quitting.\n");
