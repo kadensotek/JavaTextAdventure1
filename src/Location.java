@@ -325,7 +325,7 @@ public class Location
     public void addChest()
     {
         this.chest = new Chest();
-        this.setIsChest(true);
+        this.isChest = true;
     }
 
     public void addChestItem(int itemID)
