@@ -69,22 +69,30 @@ public class Location
 
         if(direction.equals("north"))
         {
-            if(getNorthFlag() && !(getNorthPath().isLocked()))
+            if(getNorthFlag() && !(getNorthPath().isLocked()))  /* if path exists and is not locked */
             {
                 System.out.printf("You go north.\n");
                 location = getNorthPath();
             }
+            else if(getNorthFlag() && getNorthPath().isLocked())      /* if path exists but is locked */
+            {
+                System.out.printf("The way is blocked.\n");
+            }
             else
             {
-                System.out.printf("You can't go that way.\n");
+                System.out.printf("You can't go that way.\n");   /* if path does not exist */
             }
         }
         else if(direction.equals("east"))
         {
-            if(getEastFlag() && !(getEastPath().isLocked()))
+            if(getEastFlag() && !(getEastPath().isLocked()))  /* if path exists and is not locked */
             {
                 System.out.printf("You go east.\n");
                 location = getEastPath();
+            }
+            else if(getEastFlag() && getEastPath().isLocked())      /* if path exists but is locked */
+            {
+                System.out.printf("The way is blocked.\n");
             }
             else
             {
@@ -93,10 +101,14 @@ public class Location
         }
         else if(direction.equals("south"))
         {
-            if(getSouthFlag() && !(getSouthPath().isLocked()))
+            if(getSouthFlag() && !(getSouthPath().isLocked()))  /* if path exists and is not locked */
             {
                 System.out.printf("You go south.\n");
                 location = getSouthPath();
+            }
+            else if(getSouthFlag() && getSouthPath().isLocked())      /* if path exists but is locked */
+            {
+                System.out.printf("The way is blocked.\n");
             }
             else
             {
@@ -105,10 +117,14 @@ public class Location
         }
         else if(direction.equals("west"))
         {
-            if(getWestFlag() && !(getWestPath().isLocked()))
+            if(getWestFlag() && !(getWestPath().isLocked()))  /* if path exists and is not locked */
             {
                 System.out.printf("You go west.\n");
                 location = getWestPath();
+            }
+            else if(getWestFlag() && getWestPath().isLocked())      /* if path exists but is locked */
+            {
+                System.out.printf("The way is blocked.\n");
             }
             else
             {
