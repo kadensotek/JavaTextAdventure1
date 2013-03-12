@@ -24,6 +24,8 @@ To do list:
 
         Holds containers
 
+        Add check to see if container is empty before getting items
+
         Hides containers when empty?
 
     Game:
