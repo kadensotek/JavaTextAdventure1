@@ -15,6 +15,11 @@ public class Container
         return this.empty;
     }
 
+    public void setEmpty(boolean empty)
+    {
+        this.empty = empty;
+    }
+
     public Item getItem(int index)
     {
         Item item = contents.get(index);
@@ -22,8 +27,14 @@ public class Container
         return item;
     }
 
-    public void addItem(Item newItem)
+    public void addItem(int itemID)
     {
-        contents.add(newItem);
+        Item item = new Item(itemID);
+        contents.add(item);
+
+        if(isEmpty())
+        {
+            setEmpty(false);
+        }
     }
 }
