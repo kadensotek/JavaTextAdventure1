@@ -203,7 +203,7 @@ public class Game
         System.out.printf("- Clear:\t\tClears the screen.\n");
         System.out.printf("- Go <direction>\tMoves in <direction> if available.\n");
         System.out.printf("- Look:\t\t\tLooks around current location.\n");
-        System.out.printf("- Open:\t\t\tOpens <chest>.\n");
+        System.out.printf("- Open <container>:\tOpens <container>.\n");
         System.out.printf("- Stats:\t\tShows your player stats.\n");
         System.out.printf("- Quit:\t\t\tExits the game.\n");
         System.out.println();
