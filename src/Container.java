@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Container
 {
-    private boolean isEmpty;
+    private boolean empty;
     private ArrayList<Item> contents = new ArrayList<Item>();
 
     public Container()
@@ -12,10 +12,21 @@ public class Container
 
     public boolean isEmpty()
     {
-        return this.isEmpty;
+        return this.empty;
     }
 
-    //public Item getItem()
+    public Item getItem(int index)
+    {
+        if(this.isEmpty() == true)
+        {
+            Item item = contents.getItem(index);
+            contents.remove(index);
+            return item;
+        }
+    }
 
-    //public void addItem()
+    public void addItem(Item newItem)
+    {
+        contents.add(newItem);
+    }
 }
