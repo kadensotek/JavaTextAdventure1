@@ -7,8 +7,6 @@ To do list:
 
         Drawer, chest, etc
 
-        Remember to hide when empty?
-
     Map:
 
         Create map object
@@ -18,10 +16,6 @@ To do list:
     Location:
 
         Holds items
-
-        Add check to see if container is empty before getting items
-
-        Hides containers when empty?
 
     Game:
 
