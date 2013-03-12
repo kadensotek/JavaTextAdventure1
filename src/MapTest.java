@@ -22,6 +22,7 @@ public class MapTest
 
         three.addConnection('s', six);
         three.addConnection('w', two);
+        three.addChest();
 
         four.addConnection('n', one);
         four.addConnection('e', five);
