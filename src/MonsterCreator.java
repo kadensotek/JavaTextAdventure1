@@ -27,7 +27,7 @@ public class MonsterCreator
     {
         // pass location for monster creation eventually
         String name = "MissingNo";
-        int temp = randGen.nextInt(13);
+        int temp = randGen.nextInt(12);
 
         if(temp==0)
         {
@@ -63,18 +63,14 @@ public class MonsterCreator
         }
         else if(temp==8)
         {
-            monster.setName("Skeleton");
+            monster.setName("Bugbear");
         }
         else if(temp==9)
         {
-            monster.setName("Bugbear");
+            monster.setName("Troll");
         }
         else if(temp==10)
         {
-            monster.setName("Troll");
-        }
-        else if(temp == 11)
-        }
             monster.setName("Bandit");
         }
         else
