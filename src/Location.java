@@ -177,7 +177,7 @@ public class Location
             }
             else
             {
-                System.out.printf("There is an empty chest.\n");
+                System.out.printf("There is an open chest.\n");
             }
         }
 
@@ -193,6 +193,12 @@ public class Location
         return this.type;
     }
 
+
+   /********************************************
+    *                                          *
+    *  Functions related to locked locations   *
+    *                                          *
+    ********************************************/
     public void setLocked(boolean locked)
     {
         this.locked = locked;
@@ -203,6 +209,12 @@ public class Location
         return this.locked;
     }
 
+
+   /*************************************************
+    *                                               *
+    *  Functions related to setting/getting paths   *
+    *                                               *
+    *************************************************/
     public void setNorthPath(Location location)
     {
         this.northPath = location;
@@ -243,6 +255,12 @@ public class Location
         return this.westPath;
     }
 
+
+   /**************************************
+    *                                    *
+    *  Functions related to path flags   *
+    *                                    *
+    **************************************/
     public void setNorthFlag(boolean northFlag)
     {
        this.northFlag = northFlag;
@@ -283,6 +301,12 @@ public class Location
         return this.westFlag;
     }
 
+
+   /**********************************
+    *                                *
+    *  Functions related to chests   *
+    *                                *
+    **********************************/
     public boolean isChest()
     {
         return this.isChest;
