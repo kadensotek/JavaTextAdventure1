@@ -4,9 +4,6 @@ First attempt at a Java text based game
 To do list:
 
     Container:
-        Create container object
-
-        Holds items
 
         Drawer, chest, etc
 
@@ -21,8 +18,6 @@ To do list:
     Location:
 
         Holds items
-
-        Holds containers
 
         Add check to see if container is empty before getting items
 
