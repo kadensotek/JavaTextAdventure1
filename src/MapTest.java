@@ -14,6 +14,7 @@ public class MapTest
     {
         one.addConnection('e', two);
         one.addConnection('s', four);
+        one.setLocked(true);
 
         two.addConnection('e', three);
         two.addConnection('s', five);
