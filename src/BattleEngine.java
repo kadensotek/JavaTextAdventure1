@@ -30,7 +30,7 @@ public class BattleEngine
         randGen = new Random();
     }
 
-    public void battle(Player player)
+    public void battle(Player player, Location currentLoc)
     /* flow of battle */
     {
         Monster monster = battleInit(player);
