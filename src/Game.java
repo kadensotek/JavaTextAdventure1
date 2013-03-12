@@ -106,6 +106,10 @@ public class Game
        {
            look();
        }
+       else if(userInput.startsWith("open"))
+       {
+           open(userInput);
+       }
        else if(userInput.startsWith("stats"))
        {
            stats(player);
@@ -195,6 +199,7 @@ public class Game
         System.out.printf("- Clear:\t\tClears the screen.\n");
         System.out.printf("- Go <direction>\tMoves in <direction> if available.\n");
         System.out.printf("- Look:\t\t\tLooks around current location.\n");
+        System.out.printf("- Open:\t\t\tOpens <chest>.\n");
         System.out.printf("- Stats:\t\tShows your player stats.\n");
         System.out.printf("- Quit:\t\t\tExits the game.\n");
         System.out.println();
@@ -203,6 +208,30 @@ public class Game
     public void look()
     {
         currentLoc.look();
+    }
+
+    public void open(String userInput)
+    {
+        if(userInput.matches(".*chest.*"))
+        {
+            if(currentLoc.isChest())
+            {
+                if(currentLoc.chestIsEmpty())
+                {
+                    System.out.printf("The chest is empty.\n");
+                }
+                else
+                {
+                    Item item = null;
+
+                    while(!currentLoc.chestIsEmpty())
+                    {
+                        item = currentLoc.getChestItem(0);
+                        System.out.printf("You got a %s!\n", item.getName());
+                    }
+                }
+            }
+        }
     }
 
     public void stats(Player player)
