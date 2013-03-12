@@ -299,4 +299,14 @@ public class Location
         this.setIsChest(true);
     }
 
+    public void addChestItem(int itemID)
+    {
+        this.chest.addItem(itemID);
+    }
+
+    public Item getChestItem(int index)
+    {
+        Item item = this.chest.getItem(index);
+        return item;
+    }
 }
