@@ -189,7 +189,7 @@ public class BattleEngine
         if(mCurrentHealth<=0)
         {
             player.setCurrentHealth(pCurrentHealth);
-            player.setExperience(10);
+            player.setExperience(player.getExperience()+10);
             System.out.printf("%s has been defeated!\n", mName);
             player.levelUp();
         }
