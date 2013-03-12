@@ -317,6 +317,11 @@ public class Location
         this.isChest = isChest;
     }
 
+    public boolean chestIsEmpty()
+    {
+        return this.chest.isEmpty();
+    }
+
     public void addChest()
     {
         this.chest = new Chest();
