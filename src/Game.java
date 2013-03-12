@@ -67,7 +67,7 @@ public class Game
     public void encounter()
     {
          BattleEngine battleEngine = new BattleEngine();
-         battleEngine.battle(player);
+         battleEngine.battle(player, currentLoc);
     }
 
     public String getUserInput(String userInput)
