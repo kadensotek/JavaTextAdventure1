@@ -24,6 +24,12 @@ public class Container
     {
         Item item = contents.get(index);
         contents.remove(index);
+
+        if(contents.isEmpty())
+        {
+            setEmpty(true);
+        }
+
         return item;
     }
 
