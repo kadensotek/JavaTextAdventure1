@@ -5,7 +5,7 @@ public class MonsterCreator
 {
     Random randGen = new Random();
 
-    public Monster Generate(int level)
+    public Monster Generate(int level, Location currentLoc)
     {
         // generate random monster based on location and level
         // all stats should be based on level
@@ -13,7 +13,7 @@ public class MonsterCreator
         Monster monster = new Monster();
 
         monster.setLevel(level);
-        monster = GenerateMonster(monster);
+        monster = GenerateMonster(monster, currentLoc);
         monster.setMaxHealth((int)GenerateHealth(monster.getLevel())); /* uses level to calculate health*/
         monster.setCurrentHealth(monster.getMaxHealth());
 
@@ -23,8 +23,10 @@ public class MonsterCreator
         return monster;
     }
 
-    private Monster GenerateMonster(Monster monster)
+    private Monster GenerateMonster(Monster monster, Location currentLoc)
     {
+        System.out.printf("Current location is %s.\n", currentLoc.getName());
+
         // pass location for monster creation eventually
         String name = "MissingNo";
         int temp = randGen.nextInt(13);

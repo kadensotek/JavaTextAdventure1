@@ -33,14 +33,14 @@ public class BattleEngine
     public void battle(Player player, Location currentLoc)
     /* flow of battle */
     {
-        Monster monster = battleInit(player);
+        Monster monster = battleInit(player, currentLoc);
 
         battleLoop();
 
         battleEnd(player);
     }
 
-    public Monster battleInit(Player player)
+    public Monster battleInit(Player player, Location currentLoc)
     /* initializes battle stats */
     {
         MonsterCreator monsterCreator = new MonsterCreator();
@@ -59,7 +59,7 @@ public class BattleEngine
         /* Sets monster stats */
         mLevel = randGen.nextInt(2)+(pLevel);
 
-        monster = monsterCreator.Generate(mLevel);
+        monster = monsterCreator.Generate(mLevel, currentLoc);
         mName = monster.getName();
         mMaxHealth = monster.getMaxHealth();
         mCurrentHealth = monster.getCurrentHealth();
