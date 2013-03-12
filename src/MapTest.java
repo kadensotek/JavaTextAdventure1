@@ -10,6 +10,8 @@ public class MapTest
     Location eight = new Location("8", "desert");
     Location nine = new Location("9", "swamp");
 
+    Item item = null;
+
     public MapTest()
     {
         one.addConnection('e', two);
@@ -32,6 +34,8 @@ public class MapTest
         five.addConnection('e', six);
         five.addConnection('s', eight);
         five.addConnection('w', four);
+        five.addChest();
+        five.addChestItem(1);  /* adds health potion to chest */
 
         six.addConnection('n', three);
         six.addConnection('s', nine);
