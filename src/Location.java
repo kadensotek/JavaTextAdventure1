@@ -15,6 +15,8 @@ public class Location
     private Location eastPath;
     private Location southPath;
     private Location westPath;
+    private Chest chest;
+    private boolean isChest;
 
     public Location(String name, String type)
     {
@@ -31,6 +33,9 @@ public class Location
         this.eastPath = null;
         this.southPath = null;
         this.westPath = null;
+
+        this.chest = null;
+        this.isChest = false;
     }
 
     public void addConnection(char direction, Location location)
@@ -163,6 +168,19 @@ public class Location
         {
             System.out.printf("There is a path to the west.\n");
         }
+
+        if(isChest())
+        {
+            if(!chest.isEmpty())
+            {
+                System.out.printf("There is a full chest.\n");  /* Change when items are added. */
+            }
+            else
+            {
+                System.out.printf("There is an empty chest.\n");
+            }
+        }
+
     }
 
     public String getName()
@@ -263,6 +281,22 @@ public class Location
     public boolean getWestFlag()
     {
         return this.westFlag;
+    }
+
+    public boolean isChest()
+    {
+        return this.isChest;
+    }
+
+    public void setIsChest(boolean isChest)
+    {
+        this.isChest = isChest;
+    }
+
+    public void addChest()
+    {
+        this.chest = new Chest();
+        this.setIsChest(true);
     }
 
 }
