@@ -18,6 +18,11 @@ public class Inventory
 
     public void addItem(Item item)
     {
+        if(isEmpty())
+        {
+            this.empty = false;
+        }
+
         this.items.add(item);
     }
 
@@ -28,9 +33,16 @@ public class Inventory
 
     public void printInventory()
     {
-        for(int i=0; i<items.size(); i++)
+        if(!isEmpty())
         {
-            System.out.printf("%d: %s\n", i+1, items.get(i).getName());
+            for(int i=0; i<items.size(); i++)
+            {
+                System.out.printf("%d: %s\n", i+1, items.get(i).getName());
+            }
+        }
+        else
+        {
+            System.out.printf("Inventory is empty.\n");
         }
     }
 }
