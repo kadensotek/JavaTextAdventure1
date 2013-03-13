@@ -4,7 +4,7 @@ public class MapTest
     Location two = new Location("2", "swamp");
     Location three = new Location("3", "town");
     Location four = new Location("4", "forest");
-    Location five = new Location("5", "forest");
+    Location five = new Location("5", "mountain");
     Location six = new Location("6", "town");
     Location seven = new Location("7", "cave");
     Location eight = new Location("8", "desert");
