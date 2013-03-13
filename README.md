@@ -19,19 +19,21 @@ To do list:
 
     Inventory idea:
 
+       Combine items if duplicate
+
        Create parallel list to hold number of items in inventory
 
            Decrement amount if amount > 1 or remove item if amount == 1
 
     Game:
 
-        Generate map
-
         create command parsing
 
     Item:
 
         Add new items
+
+        Give items a use
 
     Monster:
 
@@ -52,3 +54,5 @@ To do list:
         Refine attack function
 
         Adjust defense modifier
+
+        Remove auto level up
