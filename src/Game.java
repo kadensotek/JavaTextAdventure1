@@ -4,10 +4,12 @@ import java.util.Random;
 
 public class Game
 {
-    public MapTest map = new MapTest();
-    public Player player = new Player();
-    public Scanner scanner = new Scanner(System.in);
-    public Random randGen = new Random();
+    private MapTest map         = new MapTest();
+    private Player player       = new Player();
+    private Inventory inventory = new Inventory();
+    private Scanner scanner     = new Scanner(System.in);
+    private Random randGen      = new Random();
+
     Location currentLoc = map.one;
 
     public Game()
@@ -112,7 +114,11 @@ public class Game
        }
        else if(userInput.startsWith("stats"))
        {
-           stats(player);
+           stats();
+       }
+       else if(userInput.startsWith("inventory"))
+       {
+           inventory();
        }
        else if(userInput.startsWith("spawn"))
        {
@@ -205,6 +211,7 @@ public class Game
         System.out.printf("- Look:\t\t\tLooks around current location.\n");
         System.out.printf("- Open <container>:\tOpens <container>.\n");
         System.out.printf("- Stats:\t\tShows your player stats.\n");
+        System.out.printf("- Inventory:\tShows your inventory.\n");
         System.out.printf("- Quit:\t\t\tExits the game.\n");
         System.out.println();
     }
@@ -231,6 +238,9 @@ public class Game
                     while(!currentLoc.chestIsEmpty())
                     {
                         item = currentLoc.getChestItem(0);
+
+                        inventory.addItem(item);
+
                         System.out.printf("You got a %s!\n", item.getName());
                     }
                 }
@@ -238,7 +248,8 @@ public class Game
         }
     }
 
-    public void stats(Player player)
+    public void stats()
+    /* Prints player stats */
     {
         System.out.printf("\nPlayer Stats\n");
         System.out.printf("--------------------------------------\n");
@@ -249,8 +260,17 @@ public class Game
         System.out.printf("Health:\t  %d/%d\n", player.getCurrentHealth(), player.getMaxHealth());
         System.out.printf("Attack:\t  %d\n", player.getAttack());
         System.out.printf("Def:\t  %d\n", player.getDefense());
-        //System.out.printf("Location:\t%s\n", player.getLocation());
-        //System.out.printf("Inventory:\n");
+        System.out.println();
+    }
+
+    public void inventory()
+    /* Prints player's inventory */
+    {
+        System.out.printf("\nInventory\n");
+        System.out.printf("---------------------------\n");
+
+        inventory.printInventory();
+
         System.out.println();
     }
 }
