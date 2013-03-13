@@ -19,13 +19,9 @@ To do list:
 
     Inventory idea:
 
-       Create class? or just use it as a per entity basis?
-
-       Create list to hold items
-
        Create parallel list to hold number of items in inventory
 
-       Decrement amount if amount > 1 or remove item if amount == 1
+           Decrement amount if amount > 1 or remove item if amount == 1
 
     Game:
 
