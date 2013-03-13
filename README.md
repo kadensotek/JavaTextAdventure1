@@ -45,8 +45,6 @@ To do list:
 
     MonsterCreator:
 
-        Pass map location to monster creator to create monsters specific to environment
-
         Give monsters different base stats
 
         Create experience reward for each monster
