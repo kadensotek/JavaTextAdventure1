@@ -17,6 +17,8 @@ To do list:
 
         Holds items
 
+        Add unlockable doors
+
     Inventory idea:
 
        Combine items if duplicate
@@ -34,6 +36,8 @@ To do list:
         Add new items
 
         Give items a use
+
+        Implement key to open locked areas
 
     Monster:
 
