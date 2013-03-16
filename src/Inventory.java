@@ -28,7 +28,8 @@ public class Inventory
 
     public void useItem(Item item)
     {
-        ;
+       // uses item
+       // calls useItem function in Item class
     }
 
     public void printInventory()

@@ -42,6 +42,11 @@ public class Item
         }
     }
 
+    public void useItem(Item item)
+    {
+        //determines the usage of item
+    }
+
     public int getItemID()
     {
         return this.itemID;
