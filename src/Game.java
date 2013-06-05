@@ -211,7 +211,7 @@ public class Game
         System.out.printf("- Look:\t\t\tLooks around current location.\n");
         System.out.printf("- Open <container>:\tOpens <container>.\n");
         System.out.printf("- Stats:\t\tShows your player stats.\n");
-        System.out.printf("- Inventory:\tShows your inventory.\n");
+        System.out.printf("- Inventory:\t\tShows your inventory.\n");
         System.out.printf("- Quit:\t\t\tExits the game.\n");
         System.out.println();
     }
