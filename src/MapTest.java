@@ -21,6 +21,8 @@ public class MapTest
         two.addConnection('e', three);
         two.addConnection('s', five);
         two.addConnection('w', one);
+        two.addChest();
+        two.addChestItem(1); /* adds health potion to chest */
 
         three.addConnection('s', six);
         three.addConnection('w', two);
@@ -35,7 +37,9 @@ public class MapTest
         five.addConnection('s', eight);
         five.addConnection('w', four);
         five.addChest();
-        five.addChestItem(1);  /* adds health potion to chest */
+        five.addChestItem(1);
+        five.addChestItem(1);
+        five.addChestItem(2);
 
         six.addConnection('n', three);
         six.addConnection('s', nine);
