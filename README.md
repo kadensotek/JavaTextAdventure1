@@ -23,10 +23,6 @@ To do list:
 
         Implement function for using items
 
-    Game:
-
-        create command parsing
-
     Item:
 
         Add new items
