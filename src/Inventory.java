@@ -18,7 +18,7 @@ public class Inventory
 
     public void addItem(Item item)
     {
-        boolean duplicate = false;
+        boolean duplicate = false;   /* true if item is a duplicate */
         int index = 0;
 
         if(isEmpty())
@@ -26,6 +26,7 @@ public class Inventory
             this.empty = false;
         }
 
+        /* traverses list and compares item indexes to check for duplicate */
         for(index=0; index<items.size(); index++)
         {
             if(item.getItemID() == this.items.get(index).getItemID())
@@ -55,7 +56,7 @@ public class Inventory
         {
             for(int i=0; i<items.size(); i++)
             {
-                if(number.get(i)==1)
+                if(number.get(i)==1)  /* if only one, don't print "x1" */
                 {
                     System.out.printf("%d: %s\n", i+1, items.get(i).getName());
                 }
