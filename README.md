@@ -19,13 +19,9 @@ To do list:
 
         Add unlockable doors
 
-    Inventory idea:
+    Inventory:
 
-       Combine items if duplicate
-
-       Create parallel list to hold number of items in inventory
-
-           Decrement amount if amount > 1 or remove item if amount == 1
+        Implement function for using items
 
     Game:
 
